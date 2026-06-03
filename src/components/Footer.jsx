@@ -35,7 +35,7 @@ export default function Footer() {
         <div>
           <h4 className="font-bold mb-6 text-white">Connect</h4>
           <ul className="space-y-4 text-white/60">
-            <li><a href="#" className="hover:text-accent transition-colors">Instagram</a></li>
+            <li><a href="https://www.instagram.com/digitalorbit__agency/" className="hover:text-accent transition-colors">Instagram</a></li>
             <li><a href="#" className="hover:text-accent transition-colors">LinkedIn</a></li>
             <li><a href="#" className="hover:text-accent transition-colors">Twitter/X</a></li>
           </ul>
