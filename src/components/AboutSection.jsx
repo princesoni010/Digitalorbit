@@ -1,36 +1,58 @@
+import { useScrollReveal, useStaggerReveal, useCountUp } from '../hooks/useScrollAnimations';
+import { ArrowRight } from 'lucide-react';
+
 export default function AboutSection() {
-  const stats = [
-  { value: "7", label: "Days Avg. Delivery" },
-  { value: "3", label: "Industries Served" },
-  { value: "100%", label: "Client Satisfaction" }
-];
+  const containerRef = useScrollReveal();
+  const statsRef = useStaggerReveal('.stagger-item');
+  
+  const daysRef = useCountUp(3);
+  const industriesRef = useCountUp(5);
+  const clientsRef = useCountUp(100);
 
   return (
-    <section className="py-24 px-6 relative" id="about">
+    <section ref={containerRef} className="py-24 px-6 relative bg-white" id="about">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="flex gap-3 mb-6">
-              <span className="px-3 py-1 text-xs border border-white/20 rounded-full glass-card">Web Design</span>
-              <span className="px-3 py-1 text-xs border border-white/20 rounded-full glass-card">Creative Ads</span>
+            <div className="reveal-up flex gap-3 mb-6">
+              <span className="px-3 py-1 text-xs font-medium bg-gray-100 text-text-muted border border-gray-200 rounded-full">Web Design</span>
+              <span className="px-3 py-1 text-xs font-medium bg-gray-100 text-text-muted border border-gray-200 rounded-full">Creative Ads</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            
+            <h2 className="reveal-up text-4xl md:text-5xl font-bold mb-6 text-text">
               Built For <span className="text-gradient">Modern</span> Businesses
             </h2>
-            <p className="text-lg text-white/70 mb-8">
-              DigitalOrbit helps businesses establish a strong online presence through high-performing websites and creative advertising. We merge aesthetics with performance to deliver premium experiences.
+            
+            <p className="reveal-up text-lg text-text-muted mb-8 leading-relaxed">
+              DigitalOrbit helps businesses establish a strong online presence through high-performing websites and creative advertising. We merge premium aesthetics with solid performance to deliver experiences that convert.
             </p>
-            <button className="text-accent font-semibold hover:text-white transition-colors flex items-center gap-2 group">
-              More About Us <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </button>
+            
+            <a href="#services" className="reveal-up text-accent font-semibold hover:text-accent-light transition-colors flex items-center gap-2 group">
+              More About Us <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => (
-              <div key={index} className="glass-card p-8 rounded-2xl border-white/5 hover:border-white/20 transition-all text-center group">
-                <div className="text-4xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform">{stat.value}</div>
-                <div className="text-sm text-white/60">{stat.label}</div>
+          
+          <div ref={statsRef} className="grid grid-cols-2 gap-6">
+            <div className="stagger-item glass-card p-8 rounded-3xl border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300">
+              <div className="text-4xl font-bold text-accent mb-2">
+                <span ref={daysRef}>0</span>
               </div>
-            ))}
+              <div className="text-sm font-medium text-text-muted">Days Avg. Delivery</div>
+            </div>
+            
+            <div className="stagger-item glass-card p-8 rounded-3xl border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 translate-y-4">
+              <div className="text-4xl font-bold text-accent mb-2">
+                <span ref={industriesRef}>0</span>+
+              </div>
+              <div className="text-sm font-medium text-text-muted">premium project</div>
+            </div>
+
+            <div className="stagger-item glass-card p-8 rounded-3xl border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 col-span-2">
+              <div className="text-5xl font-bold text-gradient mb-2">
+                <span ref={clientsRef}>0</span>%
+              </div>
+              <div className="text-sm font-medium text-text-muted">Client Satisfaction Rate</div>
+            </div>
           </div>
         </div>
       </div>

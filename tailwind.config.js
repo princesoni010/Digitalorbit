@@ -7,9 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#050816',
-        text: '#FFFFFF',
-        accent: '#00F5FF',
+        background: '#FAFBFF',
+        surface: '#FFFFFF',
+        text: '#1A1A2E',
+        'text-muted': '#6B7280',
+        accent: '#6C63FF',
+        'accent-light': '#8B85FF',
         primary: {
           100: '#6C63FF',
           200: '#8B5CF6',
@@ -22,8 +25,15 @@ export default {
         body: ['Inter', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(to right, #6C63FF, #8B5CF6, #EC4899, #06B6D4)',
-        'glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #6C63FF, #8B5CF6, #EC4899, #06B6D4)',
+        'gradient-subtle': 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #fce7f3 100%)',
+        'glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
+      },
+      boxShadow: {
+        'glass': '0 8px 32px rgba(108, 99, 255, 0.08)',
+        'glass-hover': '0 12px 40px rgba(108, 99, 255, 0.15)',
+        'soft': '0 2px 16px rgba(0, 0, 0, 0.06)',
+        'elevated': '0 20px 60px rgba(0, 0, 0, 0.08)',
       },
       animation: {
         'orbit': 'orbit 20s linear infinite',
@@ -45,8 +55,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { opacity: 0.5, boxShadow: '0 0 20px rgba(0, 245, 255, 0.2)' },
-          '100%': { opacity: 1, boxShadow: '0 0 40px rgba(0, 245, 255, 0.6)' },
+          '0%': { opacity: 0.5, boxShadow: '0 0 20px rgba(108, 99, 255, 0.2)' },
+          '100%': { opacity: 1, boxShadow: '0 0 40px rgba(108, 99, 255, 0.4)' },
         }
       }
     },

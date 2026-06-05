@@ -1,39 +1,11 @@
-// import { useEffect, useRef } from 'react';
-// import gsap from 'gsap';
-
-// export default function MarqueeSection() {
-//   const items = [
-//     "Web Design",
-//     "Creative Ads",
-//     "Social Media Creatives",
-//     "Responsive Development",
-//     "Brand Identity",
-//     "Digital Growth"
-//   ];
-
-//   // We duplicate the items to ensure seamless scrolling
-//   const marqueeItems = [...items, ...items];
-
-//   return (
-//     <div className="w-full bg-[#0d0d1a] py-3 border-y border-[#6C63FF]/20 overflow-hidden relative flex group">
-//       <div className="flex whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]">
-//         {marqueeItems.map((item, index) => (
-//           <div key={index} className="flex items-center px-4">
-//             <span className="font-heading font-semibold text-[15px] tracking-[0.08em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#6C63FF] via-[#EC4899] to-[#06B6D4]">
-//               {item}
-//             </span>
-//             <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#6C63FF] to-[#EC4899] mx-6"></div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useScrollReveal } from '../hooks/useScrollAnimations';
 
 export default function MarqueeSection() {
+  const containerRef = useScrollReveal();
+  const marqueeRef = useRef(null);
+
   const items = [
     "Web Design",
     "Creative Ads",
@@ -43,50 +15,44 @@ export default function MarqueeSection() {
     "Digital Growth"
   ];
 
-  // Seamless looping ke liye items ko duplicate kiya hai
-  const marqueeItems = [...items, ...items];
+  const marqueeItems = [...items, ...items, ...items, ...items]; // Multiply for long screens
+
+  useEffect(() => {
+    const marquee = marqueeRef.current;
+    if (!marquee) return;
+
+    // Use GSAP for smooth marquee
+    const tween = gsap.to(marquee, {
+      xPercent: -50,
+      ease: "none",
+      duration: 30,
+      repeat: -1,
+    });
+
+    // Pause on hover
+    marquee.addEventListener("mouseenter", () => tween.pause());
+    marquee.addEventListener("mouseleave", () => tween.play());
+
+    return () => {
+      marquee.removeEventListener("mouseenter", () => tween.pause());
+      marquee.removeEventListener("mouseleave", () => tween.play());
+      tween.kill();
+    };
+  }, []);
 
   return (
-    <>
-      {/* 1. Animation keyframes inject karne ke liye custom <style> block */}
-      <style>{`
-        @keyframes customMarquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-100%); }
-        }
-        .animate-custom-marquee {
-          animation: customMarquee 25s linear infinite;
-        }
-      `}</style>
-
-      {/* 2. Main Marquee Wrapper */}
-      <div className="w-full bg-[#0d0d1a] py-3 border-y border-[#6C63FF]/20 overflow-hidden relative flex group">
-        
-        {/* Pehla Track (First Container) */}
-        <div className="flex whitespace-nowrap animate-custom-marquee group-hover:[animation-play-state:paused]">
-          {marqueeItems.map((item, index) => (
-            <div key={`track1-${index}`} className="flex items-center px-4">
-              <span className="font-heading font-semibold text-[15px] tracking-[0.08em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#6C63FF] via-[#EC4899] to-[#06B6D4]">
-                {item}
-              </span>
-              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#6C63FF] to-[#EC4899] mx-6"></div>
-            </div>
-          ))}
-        </div>
-
-        {/* Doosra Track (Second Container) - Jo pehle wale ke turant peeche jud ke chalega */}
-        <div className="flex whitespace-nowrap animate-custom-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
-          {marqueeItems.map((item, index) => (
-            <div key={`track2-${index}`} className="flex items-center px-4">
-              <span className="font-heading font-semibold text-[15px] tracking-[0.08em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#6C63FF] via-[#EC4899] to-[#06B6D4]">
-                {item}
-              </span>
-              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#6C63FF] to-[#EC4899] mx-6"></div>
-            </div>
-          ))}
-        </div>
-
+    <div ref={containerRef} className="w-full bg-white py-6 border-y border-gray-100 overflow-hidden relative flex group">
+      {/* GSAP Marquee Track */}
+      <div ref={marqueeRef} className="reveal-up flex whitespace-nowrap min-w-max">
+        {marqueeItems.map((item, index) => (
+          <div key={`track-${index}`} className="flex items-center px-6">
+            <span className="font-heading font-bold text-lg md:text-xl tracking-wider uppercase text-text/80 hover:text-accent transition-colors duration-300">
+              {item}
+            </span>
+            <div className="w-2 h-2 rounded-full bg-gradient-primary mx-8"></div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
