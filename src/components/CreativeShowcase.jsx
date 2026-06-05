@@ -9,17 +9,28 @@ export default function CreativeShowcase() {
   const sliderRef = useRef(null);
   const trackRef = useRef(null);
 
+  // const baseItems = [
+  //   { title: "Food Photography", image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
+  //   // { title: "Product Promo", image: "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
+  //   // { title: "Brand Identity", image: "https://images.pexels.com/photos/1337380/pexels-photo-1337380.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
+  //   // { title: "Apparel Ads", image: "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
+  //   // { title: "Digital Marketing", image: "https://images.pexels.com/photos/267399/pexels-photo-267399.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
+  //   { title: "pramotional posters ", image: "/public/noodle.png" },
+  //   { title: "Promotional Poster", image: "/public/brand.png" },
+  //   { title: "Branding Poster", image: "/public/DO.png" },
+  //   { title: "Burger Studio", image: "/public/burger.png" },
+  // ];
+
   const baseItems = [
-    { title: "Food Photography", image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
-    // { title: "Product Promo", image: "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
-    // { title: "Brand Identity", image: "https://images.pexels.com/photos/1337380/pexels-photo-1337380.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
-    // { title: "Apparel Ads", image: "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
-    // { title: "Digital Marketing", image: "https://images.pexels.com/photos/267399/pexels-photo-267399.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" },
-    { title: "pramotional posters ", image: "/public/noodle.png" },
-    { title: "Promotional Poster", image: "/public/brand.png" },
-    { title: "Branding Poster", image: "/public/DO.png" },
-    { title: "Burger Studio", image: "/public/burger.png" },
-  ];
+  { 
+    title: "Food Photography", 
+    image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" 
+  },
+  { title: "promotional posters ", image: "/noodle.png" }, 
+  { title: "Promotional Poster",   image: "/brand.png" },  
+  { title: "Branding Poster",      image: "/DO.png" },     
+  { title: "Burger Studio",        image: "/burger.png" }, 
+];
 
   // Infinite Seamless Loop ke liye array ko duplicate kar rahe hain
   const items = [...baseItems, ...baseItems];
