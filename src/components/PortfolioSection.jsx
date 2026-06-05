@@ -32,7 +32,7 @@ export default function PortfolioSection() {
       category: "Web Design ", 
       style: "LUXURY & STAY", 
       screenshot: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800", 
-      liveLink: "https://princesoni010.github.io/Titan-Fitness/" 
+      liveLink: "https://havenluxaryresort.vercel.app/" 
     }
 
 
