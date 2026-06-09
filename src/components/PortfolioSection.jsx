@@ -15,6 +15,16 @@ export default function PortfolioSection() {
       screenshot: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800", 
       liveLink: "https://havenluxaryresort.vercel.app/" 
     },
+
+  { 
+  name: "Premium Gaming Website", 
+  category: "Web Design", 
+  style: "MODERN & IMMERSIVE", 
+
+  screenshot: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2000&auto=format&fit=crop", 
+ 
+  liveLink: "https://gameingzone.vercel.app/" 
+},
     
     { 
       name: "Restaurant Demo website ", 
