@@ -6,13 +6,25 @@ export default function PortfolioSection() {
   const projectsRef = useStaggerReveal('.stagger-item', { stagger: 0.15 });
 
   const projects = [
+
+
+     { 
+      name: "Premium Resort Website", 
+      category: "Web Design ", 
+      style: "LUXURY & STAY", 
+      screenshot: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800", 
+      liveLink: "https://havenluxaryresort.vercel.app/" 
+    },
+    
     { 
-      name: "Restaurant Demo", 
+      name: "Restaurant Demo website ", 
       category: "Web Design & Development", 
       style: "with  table RESERVE option", 
       screenshot: "https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=800&q=80", 
       liveLink: "https://princesoni010.github.io/demo-restaurant-website/" 
     },
+
+    
     { 
       name: "Wedding Photographer Portfolio", 
       category: "Web Design & Branding", 
@@ -20,20 +32,16 @@ export default function PortfolioSection() {
       screenshot: "https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress&cs=tinysrgb&w=800&q=80", 
       liveLink: "https://princesoni010.github.io/weedingphotographer/" 
     },
+
+    
     { 
       name: "Titan Fitness", 
       category: "Web Design & Social Ads", 
-      style: "Modern Fitness", 
+      style: "website for GYM", 
       screenshot: "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800&q=80", 
       liveLink: "https://princesoni010.github.io/Titan-Fitness/" 
-    },
-     { 
-      name: "Premium Resort Website", 
-      category: "Web Design ", 
-      style: "LUXURY & STAY", 
-      screenshot: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800", 
-      liveLink: "https://havenluxaryresort.vercel.app/" 
     }
+    
 
 
 
@@ -46,7 +54,7 @@ export default function PortfolioSection() {
         <div className="flex justify-between items-end mb-16">
           <div>
             <h2 className="reveal-up text-4xl md:text-5xl font-bold mb-4 text-text">
-              Selected <span className="text-gradient">Work</span>
+              Our <span className="text-gradient">Projects</span>
             </h2>
             <p className="reveal-up text-text-muted text-lg max-w-xl">
               A glimpse of our recent projects that delivered real impact and beautiful digital experiences.
