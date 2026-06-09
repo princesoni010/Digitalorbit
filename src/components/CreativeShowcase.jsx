@@ -22,10 +22,10 @@ export default function CreativeShowcase() {
   // ];
 
   const baseItems = [
-  { 
+   
     // title: "Food Photography", 
     // image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" 
-  },
+  
   { title: "promotional posters ", image: "/noodle.png" }, 
   { title: "Promotional Poster",   image: "/brand.png" },  
   { title: "Branding Poster",      image: "/DO.png" },     
