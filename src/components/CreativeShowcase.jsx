@@ -23,13 +23,13 @@ export default function CreativeShowcase() {
 
   const baseItems = [
   { 
-    title: "Food Photography", 
-    image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" 
+    // title: "Food Photography", 
+    // image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" 
   },
   { title: "promotional posters ", image: "/noodle.png" }, 
   { title: "Promotional Poster",   image: "/brand.png" },  
   { title: "Branding Poster",      image: "/DO.png" },     
-  { title: "Burger Studio",        image: "/burger.png" }, 
+  { title: "costume ads ",        image: "/burger.png" }, 
 ];
 
   // Infinite Seamless Loop ke liye array ko duplicate kar rahe hain
@@ -63,7 +63,7 @@ export default function CreativeShowcase() {
       // Is number ko CHNAGE karein speed badhane/ghatane ke liye.
       // Jitna KAM number hoga (e.g., 15) utna FAST chalega.
       // Jitna ZYADA number hoga (e.g., 40) utna SLOW chalega.
-      const SPEED_IN_SECONDS = 25; 
+      const SPEED_IN_SECONDS = 21; 
 
       // Poore track ki aadhi width (kyunki humne items duplicate kiye hain)
       const loopWidth = track.scrollWidth / 2;
